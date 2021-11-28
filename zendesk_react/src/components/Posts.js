@@ -27,6 +27,7 @@ const Posts = ({ posts, loading, tickid}) => {
         <th scope="col">Id</th>
         <th scope="col">Subject</th>
         <th scope="col">Created Date</th>
+        <th scope="col">Created Time</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
@@ -42,7 +43,10 @@ const Posts = ({ posts, loading, tickid}) => {
           {post.raw_subject}
           </td>
           <td>
-          {post.created_at}
+          {post.created_at.slice(0, 10)}
+          </td>
+          <td>
+          {post.created_at.slice(11,19)}
           </td>
           <td>
           {post.status}
@@ -51,10 +55,8 @@ const Posts = ({ posts, loading, tickid}) => {
       ))}</>:
       <div class="card">
       <div class="card-body">
-        <h3>{posts[0].id}</h3>
-        <h3>{posts[0].raw_subject}</h3>
-        <h3>{posts[0].created_at}</h3>
-        <h3>{posts[0].status}</h3>
+        <h3>Description:</h3><p>{posts[0].description}</p>
+        <h4>Requester Id:</h4><span>{posts[0].requester_id}</span>
       </div>
     </div>}
     </tbody>
