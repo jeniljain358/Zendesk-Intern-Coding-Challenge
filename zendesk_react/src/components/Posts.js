@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 const Posts = ({ posts, loading, tickid}) => {
   const [show, setShow] = useState(false);
   if (loading) {
@@ -34,7 +35,7 @@ const Posts = ({ posts, loading, tickid}) => {
     <tbody>
       {!show?
       <>
-      {posts.map(post => (
+      {posts && posts.map(post => (
         <tr key={post.id} >
           <td value = {post.id} onClick = {handleclick} style={{cursor:'pointer'}}>
           {post.id}
